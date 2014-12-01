@@ -1,0 +1,10 @@
+#Greenfoot properties
+#Mon Dec 01 16:25:00 CET 2014
+class.Loodsboot.image=loodsboot.png
+version=2.6.0
+project.charset=UTF-8
+class.Loodsboot.superclass=Boten
+world.lastInstantiated=Haven
+class.Haven.superclass=greenfoot.World
+class.Boten.superclass=greenfoot.Actor
+class.Haven.image=havenachtergrond.png
