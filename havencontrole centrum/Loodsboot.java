@@ -15,56 +15,61 @@ public class Loodsboot extends Boten
     public void act() 
     {
         processKeys();
-        move();
-    }
+        moveTheBoat();
+
     
-    public int upSpeed = 0;
-    public int downSpeed = 0;
-    public int leftSpeed = 0;
-    public int rightSpeed = 0;
-    public void move(){
-    setLocation(getX() + leftSpeed+rightSpeed, getY() + upSpeed+downSpeed);
     }
-    private void processKeys() 
-    {
-        
-        if(Greenfoot.isKeyDown("right")||Greenfoot.isKeyDown("d")) 
-        {
-            
-            move(1);
-            
-        }
-        else{
-            move(0);
-        }
-        if(Greenfoot.isKeyDown("left")||Greenfoot.isKeyDown("a")) 
-        {
-            
-            move(-1);
-            
-        }
-        else{
-            move(0);
-        }
-        if(Greenfoot.isKeyDown("down")||Greenfoot.isKeyDown("s")) 
-        {
-           
-            turn(-1);
-            
-        }
-        if(Greenfoot.isKeyDown("up")||Greenfoot.isKeyDown("w")) 
-        {
-           
-            turn(1);
-            
-        }
-        
-        if(Greenfoot.isKeyDown("space"))
-        {
-            
-            turn(-1);
-            
-        }
+
+    private double ySpeed;
+    private double xSpeed;
+
+
+    
+    public void moveTheBoat(){
+        setLocation(getExactX()+xSpeed,getExactY()+ySpeed);
 
     }
+
+    private void processKeys() 
+    {
+        boatAngle=getRotation();
+        
+        if(Greenfoot.isKeyDown("w")||Greenfoot.isKeyDown("up"))
+        {
+            turnTheBoat();
+            xSpeed=leftSpeed;
+            ySpeed=upSpeed;
+            
+            
+        }
+        else
+        {
+            if(Greenfoot.isKeyDown("s")||Greenfoot.isKeyDown("down"))
+        {
+            turnTheBoat();
+            xSpeed=leftSpeed*-0.5;
+            ySpeed=upSpeed*-0.5;
+            
+            
+        }
+        else
+        {
+            xSpeed=0;
+            ySpeed=0;
+        }
+        }
+        
+        if(Greenfoot.isKeyDown("d")||Greenfoot.isKeyDown("right"))
+        {
+
+            turn(1);
+        }
+        if(Greenfoot.isKeyDown("a")||Greenfoot.isKeyDown("left"))
+        {
+
+            turn(-1);
+        }  
+    }
+    
 }
+
