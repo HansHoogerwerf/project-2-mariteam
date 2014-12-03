@@ -1,12 +1,12 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class boten here.
+ * Write a description of class movingObjects here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public abstract class Boten extends MovingObjects
+public class MovingObjects extends Actor
 {
     private double exactX;
     private double exactY;
@@ -69,14 +69,15 @@ public abstract class Boten extends MovingObjects
     {
         return exactY;
     }
-    public int boatAngle;
-    public double leftSpeed = 0;
-    public double rightSpeed = 0;
-    public double upSpeed = 0;
-    public double downSpeed = 0;
-    public void turnTheBoat()
+    public int objectAngle;
+    public double xSpeed = 0;
+    public double ySpeed = 0;
+    public void moveTheObject()
     {
-        leftSpeed=-1*Math.cos(Math.toRadians(boatAngle));
-        upSpeed=-1*Math.sin(Math.toRadians(boatAngle));
+        xSpeed=-1*Math.cos(Math.toRadians(objectAngle));
+        ySpeed=-1*Math.sin(Math.toRadians(objectAngle));
+        
+
+
     }
 }

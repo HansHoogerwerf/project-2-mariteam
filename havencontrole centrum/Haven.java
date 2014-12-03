@@ -16,7 +16,7 @@ public class Haven extends World
     public Haven()
     {    
         super(1600, 400, 1);
-        addObject(new Loodsboot(), 1450, 167);
+        addObject(new LoodsBoot(), 1450, 167);
         
     }
 }

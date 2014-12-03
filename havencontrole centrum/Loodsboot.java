@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Loodsboot extends Boten
+public class LoodsBoot extends Boten
 {
     /**
      * Act - do whatever the Loodsboot wants to do. This method is called whenever
@@ -16,14 +16,33 @@ public class Loodsboot extends Boten
     {
         processKeys();
         moveTheBoat();
-
+        hitDetection();
     
     }
 
+    public void hitDetection(){    
+    
+        Actor kade = getOneIntersectingObject(KadeMuur.class);    
+        Actor boei = getOneIntersectingObject(KadeMuur.class);
+    if(kade != null)    
+    {    
+        damagePoint++;
+        xSpeed=xSpeed*-1;
+        ySpeed=ySpeed*-1;
+    }
+    if(damagePoint>=3)    
+    {    
+        getWorld().removeObject(this);
+        
+    }
+   }
+    
+    
+    private int damagePoint = 0;
+    
+    
     private double ySpeed;
     private double xSpeed;
-
-
     
     public void moveTheBoat(){
         setLocation(getExactX()+xSpeed,getExactY()+ySpeed);
